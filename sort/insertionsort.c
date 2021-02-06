@@ -10,23 +10,20 @@ void swap(int *arr ,int i, int j){
     arr[i] = num2;
 }
 
-
-
 void insertion_sort(int *arr, int N){
     int key;
-    int cross;
+    int cross = 0;
     for(key = 1;key<N;key++){
-        for(int i = 1;i<key+1;i++){
-            cross = key;
-            if(arr[cross]<arr[cross-i]){
-                swap(arr, cross,cross-i);
+        cross = key;
+        while(cross>0){
+            if(arr[cross]<arr[cross-1]){
+                swap(arr, cross,cross-1);
                 cross--;
-                if(cross == 0) return;
             }
-            else{return;}
-            
-        }
+            else{break;}
+        }   
     }
+    return;
 }
 
 
